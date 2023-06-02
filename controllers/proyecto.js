@@ -1,24 +1,23 @@
 
 const Proyecto =require('../models/proyecto')
+
+
+const { request, response} = require('express')
 const TipoProyecto = require('../models/tipoProyecto')
 const Cliente = require('../models/cliente')
 const Universidad = require('../models/universidad')
 const Etapas = require('../models/etapas')
 
-
-const { request, response} = require('express')
-
-
 // crear
 const createProyecto = async (req = request, 
     res = response) => {
     try{
-        const data = req.body.
+        const data = req.body
         console.log(data)
-        const { tipoproyecto, cliente,universidad,etapas } = data;
+        const { tipoProyecto, cliente,universidad,etapa } = data;
         //validando tipo proyecto
         const tipoProyectoDB = TipoProyecto.findOne({
-            _id: tipoproyecto._id
+            _id: tipoProyecto._id
         })
         if(!tipoProyectoDB){
             return res.status(400).json({msg: 'tipo proy invalido'})
@@ -42,7 +41,7 @@ const createProyecto = async (req = request,
 
         //validando etapas
         const etapasDB = Etapas.findOne({
-            _id: etapas._id
+            _id: etapa._id
         })
         if(!etapasDB){
             return res.status(400).json({msg: 'marca invalida'})
@@ -66,6 +65,7 @@ const createProyecto = async (req = request,
 const getProyectos = async (req = request, 
     res = response) => {
         try{
+            console.log("Peticion.....")
             const proyectosDB = await Proyecto.find()
                 .populate({
                     path: 'tipoProyecto'
@@ -77,7 +77,7 @@ const getProyectos = async (req = request,
                     path: 'universidad'
                 })
                 .populate({
-                    path: 'etapas'
+                    path: 'etapa'
                 })
 
             return res.json(proyectosDB)

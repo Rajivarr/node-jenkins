@@ -31,7 +31,8 @@ const ProyectoSchema = Schema({
         default: new Date()
     },
     Valor: {
-        type: Number
+        type: Number,
+        required: true
         
     },
 
