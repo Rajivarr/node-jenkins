@@ -7,27 +7,15 @@ services:
       context: .
     ports:
       - "4002"
- 
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=4002
     networks:
       - proyectos-app
-  proyectos-backend-micro-2:
-    container_name: proyectos-backend-micro-2
-    image: proyectos-backend-micro:v1
-    ports:
-      - "4002"
-    networks:
-      - proyectos-app
-  
-  proyectos-backend-micro-3:
-    container_name: proyectos-backend-micro-3
-    image: proyectos-backend-micro:v1
-    ports:
-      - "4002"
-    networks:
-      - proyectos-app
-  balanceador-carga:
-    container_name:  balanceador-carga
-    image:  balanceador-carga:v1
+
+ balanceador-carga:
+    container_name: balanceador-carga
+    image: balanceador-carga:latest
     build:
       context: ./balanceador
     ports:
