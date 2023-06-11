@@ -12,8 +12,7 @@ services:
       - PORT=4002
     networks:
       - proyectos-app
-
- balanceador-carga:
+  balanceador-carga:
     container_name: balanceador-carga
     image: balanceador-carga:latest
     build:
