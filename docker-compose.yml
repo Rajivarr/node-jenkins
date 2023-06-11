@@ -1,8 +1,8 @@
 version: "3.7"
 services:
   proyectos-backend-micro:
-    container_name: proyectos-backend-micro
-    image: proyectos-backend-micro:v1
+    container_name: proyectos-backend-micro-
+    image: proyectos-backend-micro-:v1
     build:
       context: .
     ports:
@@ -13,7 +13,7 @@ services:
     networks:
       - proyectos-app
   balanceador-carga:
-    container_name: balanceador-carga
+    container_name: balanceador-carga-
     image: balanceador-carga:latest
     build:
       context: ./balanceador
