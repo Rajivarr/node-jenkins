@@ -24,10 +24,10 @@ pipeline {
                     withCredentials([
                             string(credentialsId: 'MONGO_URI', variable: 'MONGO_URI')
                     ]) {
-                        sh (
-                            sed ("s|\\${MONGO_URI}|${MONGO_URI}|g" docker-compose.yml > docker-compose-update.yml
+                        sh """
+                            sed 's|\\${MONGO_URI}|${MONGO_URI}|g' docker-compose.yml > docker-compose-update.yml
                             docker-compose -f docker-compose-update.yml up -d)
-                        )
+                        """
                     }
                 }
             }
