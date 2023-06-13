@@ -2,7 +2,7 @@ version: "3.7"
 services:
   proyectos-backend-micro:
     container_name: proyectos-backend-micro
-    image: proyectos-backend-micro:v1
+    image: proyectos-backend-micro-:v1
     build:
       context: .
     ports:
