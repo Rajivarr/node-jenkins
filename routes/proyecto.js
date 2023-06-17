@@ -2,6 +2,7 @@ const { Router } = require('express')
 const {  createProyecto, 
     getProyectos, 
     updateProyectoByID } = require('../controllers/proyecto');
+    
 
 const router = Router()
 
