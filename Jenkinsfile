@@ -41,6 +41,7 @@ pipeline {
                 subject: "Estado del build: ${currentBuild.currentResult}",
                 body: "Se ha completado el build. Puede detallar en: ${env.BUILD_URL}",
                 to: "rajiv.arrieta@est.iudigital.edu.co",
+                
                 from: "jenkins@iudigital.edu.co"
             )
         }
